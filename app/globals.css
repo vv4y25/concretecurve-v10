@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f7f4ef;
+  --bg-muted: #efe9e0;
+  --bg-elevated: #fbf9f6;
+  --ink: #2c2824;
+  --ink-muted: #6b635a;
+  --accent: #8b5e3c;
+  --accent-hover: #734c30;
+  --accent-soft: #d4b48c;
+  --olive: #6b6f4a;
+  --stone: #cfc5b8;
+  --border: #ddd4c8;
+  --focus: #8b5e3c;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-muted: var(--bg-muted);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-olive: var(--olive);
+  --color-stone: var(--stone);
+  --color-border: var(--border);
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-source-sans);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-source-sans), system-ui, sans-serif;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent-soft) 70%, white);
+  color: var(--ink);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease-out both;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out both;
+}
+
+.animate-delay-1 {
+  animation-delay: 0.12s;
+}
+
+.animate-delay-2 {
+  animation-delay: 0.24s;
+}
+
+.animate-delay-3 {
+  animation-delay: 0.36s;
+}
+
+.hero-wash {
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 20%, color-mix(in srgb, var(--accent-soft) 35%, transparent), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 15% 80%, color-mix(in srgb, var(--olive) 12%, transparent), transparent 50%),
+    linear-gradient(165deg, var(--bg) 0%, var(--bg-muted) 55%, var(--bg) 100%);
+}
